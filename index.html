@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة زفاف أحمد & سارة | Ahmed & Sara Wedding</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <!-- Tone.js for reliable, crystal-clear romantic piano music without broken links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+    <style>
+        :root {
+            --bg-cream: #fffaf9;
+            --blush-light: #fdf2f4;
+            --blush-mid: #f7d9df;
+            --gold-primary: #c59b27;
+            --gold-light: #e6c875;
+            --rose-deep: #5c3a41;
+            --rose-accent: #b86b77;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: radial-gradient(circle at top, #fffaf9 0%, #fcecef 55%, #f7dde2 100%);
+            color: var(--rose-deep);
+            overflow-x: hidden;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .font-amiri {
+            font-family: 'Amiri', serif;
+        }
+
+        .font-english-script {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .font-english-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Ornate Gold & Blush Card Border */
+        .wedding-card {
+            background: rgba(255, 252, 251, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(197, 155, 39, 0.35);
+            box-shadow: 
+                0 20px 50px rgba(140, 82, 95, 0.12),
+                0 0 0 8px rgba(255, 255, 255, 0.6),
+                0 0 0 9px rgba(197, 155, 39, 0.2);
+        }
+
+        /* Photo Frame Rotating Ring & Glow */
+        .photo-frame-wrapper {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .photo-frame-wrapper {
+                width: 270px;
+                height: 270px;
+            }
+        }
+
+        .photo-frame-ring {
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            border: 2px dashed rgba(197, 155, 39, 0.55);
+            animation: spinSlow 35s linear infinite;
+        }
+
+        .photo-frame-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, #e6c875 0%, #f5cbd3 50%, #c59b27 100%);
+            box-shadow: 0 12px 30px rgba(184, 107, 119, 0.28);
+            overflow: hidden;
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-7px); }
+        }
+
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseHeart {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+        }
+
+        .heart-beat {
+            display: inline-block;
+            animation: pulseHeart 1.8s ease-in-out infinite;
+            color: #d16b7c;
+        }
+
+        /* Gold Shimmer Text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #9c7316 0%, #c59b27 45%, #b36a78 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Countdown Box Styling */
+        .countdown-box {
+            background: linear-gradient(180deg, #ffffff 0%, #fdf4f6 100%);
+            border: 1px solid rgba(197, 155, 39, 0.35);
+            box-shadow: 0 6px 16px rgba(184, 107, 119, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(197, 155, 39, 0.2);
+        }
+
+        /* Buttons */
+        .btn-gold-rose {
+            background: linear-gradient(135deg, #c9828f 0%, #b06270 50%, #9c515f 100%);
+            color: white;
+            border: 1px solid rgba(230, 200, 117, 0.6);
+            box-shadow: 0 8px 20px rgba(176, 98, 112, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold-rose:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(176, 98, 112, 0.48);
+            filter: brightness(1.05);
+        }
+
+        .btn-outline-gold {
+            background: rgba(255, 255, 255, 0.85);
+            color: var(--rose-deep);
+            border: 1.5px solid rgba(197, 155, 39, 0.55);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-gold:hover {
+            background: #fdf2f4;
+            border-color: #c59b27;
+            transform: translateY(-2px);
+        }
+
+        /* Envelope Welcome Overlay */
+        #welcome-overlay {
+            background: radial-gradient(circle at center, #fffaf9 0%, #f9e1e6 100%);
+            transition: opacity 0.85s ease, visibility 0.85s ease;
+        }
+
+        #welcome-overlay.hidden-overlay {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Petals Canvas */
+        #petals-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="relative flex items-center justify-center py-8 px-4 sm:py-12">
+
+    <!-- Falling Rose Petals & Gold Sparkles Canvas -->
+    <canvas id="petals-canvas"></canvas>
+
+    <!-- INITIAL WELCOME ENVELOPE OVERLAY (Ensures Music Auto-Plays Smoothly on Click) -->
+    <div id="welcome-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-6 text-center">
+        <div class="max-w-md w-full wedding-card rounded-3xl p-8 sm:p-10 relative overflow-hidden animate-float">
+            <!-- Decorative Top Floral SVG -->
+            <div class="flex justify-center mb-4">
+                <svg width="120" height="42" viewBox="0 0 120 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 21C30 21 40 8 60 8C80 8 90 21 110 21" stroke="#C59B27" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M25 26C40 26 48 34 60 34C72 34 80 26 95 26" stroke="#D16B7C" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+                    <circle cx="60" cy="21" r="6" fill="#D16B7C" fill-opacity="0.2" stroke="#C59B27" stroke-width="1.5"/>
+                    <circle cx="60" cy="21" r="2.5" fill="#C59B27"/>
+                    <circle cx="35" cy="18" r="2" fill="#D16B7C"/>
+                    <circle cx="85" cy="18" r="2" fill="#D16B7C"/>
+                </svg>
+            </div>
+
+            <p class="text-sm sm:text-base text-[#8c5a64] tracking-wide mb-2 font-medium">
+                دعوة خاصة لحضور حفل زفاف
+            </p>
+
+            <h1 class="font-english-script text-5xl sm:text-6xl gold-gradient-text py-2" dir="ltr">
+                Ahmed &amp; Sara
+            </h1>
+
+            <p class="font-amiri text-2xl sm:text-3xl text-[#5c3a41] font-bold mt-1 mb-4">
+                أحمد <span class="heart-beat mx-1">♡</span> سارة
+            </p>
+
+            <div class="text-xs sm:text-sm text-[#9c6b75] mb-6 tracking-widest" dir="ltr">
+                ❀ ─ ♡ ─ ❀
+            </div>
+
+            <p class="font-amiri text-lg text-[#6e4750] mb-8 leading-relaxed">
+                "بكل الحب ندعوكم لمشاركتنا فرحتنا"
+            </p>
+
+            <button id="open-invitation-btn" class="btn-gold-rose w-full py-3.5 px-6 rounded-full font-semibold text-base sm:text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>فتح الدعوة</span>
+                <span class="text-xl">💌</span>
+            </button>
+            
+            <p class="text-xs text-[#a37c84] mt-4">
+                اضغط لفتح الدعوة وتشغيل الموسيقى الهادئة 🎵
+            </p>
+        </div>
+    </div>
+
+    <!-- FLOATING TOP MUSIC & PHOTO CONTROLS -->
+    <div class="fixed top-4 left-4 right-4 z-30 flex justify-between items-center max-w-xl mx-auto pointer-events-none">
+        <!-- Music Toggle Button -->
+        <button id="music-toggle-btn" onclick="toggleMusic()" class="pointer-events-auto btn-outline-gold px-4 py-2 rounded-full shadow-md flex items-center gap-2 text-xs sm:text-sm font-medium backdrop-blur-md">
+            <span id="music-icon" class="text-base">🎵</span>
+            <span id="music-label">تشغيل الموسيقى</span>
+        </button>
+
+        <!-- Change Photo Button (Hidden automatically when downloaded for guests) -->
+        <div id="editor-controls" class="flex items-center gap-2 pointer-events-auto">
+            <label for="photo-upload" class="btn-outline-gold px-3.5 py-2 rounded-full shadow-md flex items-center gap-1.5 text-xs sm:text-sm font-medium cursor-pointer backdrop-blur-md" title="جرب صورتك الخاصة">
+                <span>📷</span>
+                <span>تغيير الصورة</span>
+                <input id="photo-upload" type="file" accept="image/*" class="hidden" onchange="handleCustomPhoto(event)">
+            </label>
+        </div>
+    </div>
+
+    <!-- MAIN INVITATION CARD (Matches eslam-habiba-site-with-photo.tiiny.site structure) -->
+    <main class="relative z-20 w-full max-w-lg mx-auto my-6">
+        <div class="wedding-card rounded-[2.2rem] p-6 sm:p-10 text-center relative overflow-hidden">
+            
+            <!-- Subtle Corner Floral Watermarks -->
+            <svg class="absolute top-0 right-0 w-28 h-28 text-[#d4af37] opacity-20 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M100 0C60 0 40 20 40 50C40 70 20 90 0 100C30 100 60 80 75 55C88 32 100 15 100 0Z"/>
+            </svg>
+            <svg class="absolute bottom-0 left-0 w-28 h-28 text-[#d16b7c] opacity-15 pointer-events-none rotate-180" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M100 0C60 0 40 20 40 50C40 70 20 90 0 100C30 100 60 80 75 55C88 32 100 15 100 0Z"/>
+            </svg>
+
+            <!-- 1. Top Welcome Header -->
+            <p class="font-amiri text-xl sm:text-2xl text-[#7a4953] mb-6 tracking-wide">
+                بكل الحب ندعوكم لمشاركتنا فرحتنا
+            </p>
+
+            <!-- 2. Romantic Framed Couple Photo / Illustration -->
+            <div class="photo-frame-wrapper mb-6 animate-float">
+                <div class="photo-frame-ring"></div>
+                
+                <!-- Decorative Floating Hearts Around Frame -->
+                <span class="absolute -top-2 right-6 text-xl heart-beat z-20">💖</span>
+                <span class="absolute bottom-2 -left-2 text-lg heart-beat z-20" style="animation-delay: 0.7s;">✨</span>
+                <span class="absolute top-1/2 -right-4 text-sm heart-beat z-20" style="animation-delay: 1.2s;">🌸</span>
+
+                <div class="photo-frame-inner">
+                    <img 
+                        id="couple-photo"
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" 
+                        alt="Ahmed & Sara Wedding" 
+                        class="w-full h-full object-cover rounded-full"
+                        onerror="this.onerror=null; this.src='https://placehold.co/500x500/fdf2f4/b86b77?text=Ahmed+%26+Sara';"
+                    >
+                </div>
+            </div>
+
+            <!-- Quick Photo Style Switcher Pills (Optional presets for the user) -->
+            <div id="photo-presets-bar" class="flex items-center justify-center gap-2 mb-5">
+                <button onclick="setPresetPhoto(0)" class="text-[11px] px-2.5 py-1 rounded-full bg-[#fdf2f4] border border-[#e6c875] text-[#7a4953] hover:bg-[#f7d9df] transition">
+                    صورة رومانسية ١
+                </button>
+                <button onclick="setPresetPhoto(1)" class="text-[11px] px-2.5 py-1 rounded-full bg-[#fdf2f4] border border-[#e6c875] text-[#7a4953] hover:bg-[#f7d9df] transition">
+                    بوكيه ورد وفستان
+                </button>
+                <button onclick="setPresetPhoto(2)" class="text-[11px] px-2.5 py-1 rounded-full bg-[#fdf2f4] border border-[#e6c875] text-[#7a4953] hover:bg-[#f7d9df] transition">
+                    رسمة عروسين ناعمة
+                </button>
+            </div>
+
+            <!-- 3. Monogram & Floral Dividers (Exact style from link) -->
+            <div class="my-3">
+                <div class="text-xs sm:text-sm text-[#c59b27] tracking-[0.25em]" dir="ltr">
+                    ❀ ─ ♡ ─ ❀
+                </div>
+                
+                <div class="font-english-serif text-2xl sm:text-3xl font-bold tracking-widest text-[#5c3a41] my-1.5" dir="ltr">
+                    A <span class="heart-beat text-xl mx-1">♡</span> S
+                </div>
+
+                <div class="text-xs sm:text-sm text-[#c59b27] tracking-[0.25em]" dir="ltr">
+                    ❀ ─ ♡ ─ ❀
+                </div>
+            </div>
+
+            <!-- 4. Sub-header -->
+            <p class="text-sm sm:text-base text-[#7d525b] font-medium mt-4 mb-2">
+                يسعدنا وجودكم معنا في يوم مميز من حكايتنا
+            </p>
+
+            <!-- 5. Main Couple Names -->
+            <div class="my-5 py-2">
+                <h1 class="font-english-script text-5xl sm:text-6xl gold-gradient-text leading-tight" dir="ltr">
+                    Ahmed &amp; Sara
+                </h1>
+                <h2 class="font-amiri text-3xl sm:text-4xl font-bold text-[#5c3a41] mt-2">
+                    أحمد <span class="text-[#c59b27] font-normal">&amp;</span> سارة
+                </h2>
+            </div>
+
+            <!-- 6. Romantic Quote -->
+            <p class="font-amiri text-xl sm:text-2xl text-[#8f5864] italic mb-6 px-3">
+                "بداية حكاية جديدة… وأجملها بوجودكم"
+            </p>
+
+            <!-- 7. Wedding Date & Time Highlight Box -->
+            <div class="inline-block bg-gradient-to-r from-[#fdf2f4] via-[#fffaf9] to-[#fdf2f4] border border-[#e6c875] rounded-2xl px-7 py-4 mb-7 shadow-sm">
+                <div class="text-xs text-[#9c6b75] mb-1 font-medium">موعدنا بإذن الله يوم السبت</div>
+                <div class="font-amiri text-2xl sm:text-3xl font-bold text-[#5c3a41] tracking-wide">
+                    ٥ ديسمبر ٢٠٢٦
+                </div>
+                
+                <!-- Added Time Range (7 PM to 11 PM) -->
+                <div class="mt-2.5 pt-2.5 border-t border-[#f3d6dc] flex flex-col items-center justify-center gap-1">
+                    <div class="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-[#8c4f5c] bg-[#fceef1] px-4 py-1 rounded-full border border-[#e6c875]/40">
+                        <span>🕖</span>
+                        <span>من ٧:٠٠ مساءً حتى ١١:٠٠ مساءً</span>
+                    </div>
+                    <div class="text-xs text-[#b38324] mt-1 font-english-serif tracking-widest uppercase" dir="ltr">
+                        December 5, 2026 • 7:00 PM – 11:00 PM
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Live Countdown Section (العد التنازلي) -->
+            <div class="mb-8">
+                <h3 class="text-sm sm:text-base font-semibold text-[#7a4953] mb-3 flex items-center justify-center gap-2">
+                    <span class="text-[#c59b27]">✦</span>
+                    <span>العد التنازلي للحظتنا المنتظرة</span>
+                    <span class="text-[#c59b27]">✦</span>
+                </h3>
+
+                <div class="grid grid-cols-4 gap-2.5 sm:gap-3.5 max-w-md mx-auto" dir="rtl">
+                    <!-- Days -->
+                    <div class="countdown-box rounded-2xl py-3 px-2 flex flex-col items-center justify-center">
+                        <span id="cd-days" class="font-english-serif text-2xl sm:text-3xl font-bold text-[#5c3a41]">25</span>
+                        <span class="text-xs sm:text-sm text-[#9c6b75] font-medium mt-0.5">يوم</span>
+                    </div>
+                    <!-- Hours -->
+                    <div class="countdown-box rounded-2xl py-3 px-2 flex flex-col items-center justify-center">
+                        <span id="cd-hours" class="font-english-serif text-2xl sm:text-3xl font-bold text-[#5c3a41]">00</span>
+                        <span class="text-xs sm:text-sm text-[#9c6b75] font-medium mt-0.5">ساعة</span>
+                    </div>
+                    <!-- Minutes -->
+                    <div class="countdown-box rounded-2xl py-3 px-2 flex flex-col items-center justify-center">
+                        <span id="cd-minutes" class="font-english-serif text-2xl sm:text-3xl font-bold text-[#5c3a41]">00</span>
+                        <span class="text-xs sm:text-sm text-[#9c6b75] font-medium mt-0.5">دقيقة</span>
+                    </div>
+                    <!-- Seconds -->
+                    <div class="countdown-box rounded-2xl py-3 px-2 flex flex-col items-center justify-center">
+                        <span id="cd-seconds" class="font-english-serif text-2xl sm:text-3xl font-bold text-[#d16b7c]">00</span>
+                        <span class="text-xs sm:text-sm text-[#9c6b75] font-medium mt-0.5">ثانية</span>
+                    </div>
+                </div>
+                <p id="wedding-day-msg" class="hidden text-sm font-bold text-[#b86b77] mt-3">
+                    🎉 اليوم هو يوم فرحتنا الكبير! مستنيينكم تنورونا 🎉
+                </p>
+            </div>
+
+            <!-- 9. Location Button (Google Maps Link Provided by User) -->
+            <div class="space-y-3 max-w-xs mx-auto mb-8">
+                <a 
+                    href="https://maps.app.goo.gl/8mpxAGxvDJgbdV8r7" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="btn-gold-rose w-full py-3.5 px-6 rounded-full font-semibold text-base sm:text-lg flex items-center justify-center gap-2 shadow-lg"
+                >
+                    <span>📍</span>
+                    <span>مكان الحفلة (اللوكيشن)</span>
+                </a>
+
+                <button 
+                    onclick="shareInvitation()" 
+                    class="btn-outline-gold w-full py-2.5 px-5 rounded-full text-xs sm:text-sm font-medium flex items-center justify-center gap-2"
+                >
+                    <span>🔗</span>
+                    <span id="share-btn-text">نسخ رابط الدعوة لمشاركتها</span>
+                </button>
+
+                <!-- Download Ready File for Tiiny.site Hosting -->
+                <button 
+                    id="download-ready-btn"
+                    onclick="downloadCleanInvitation()" 
+                    class="w-full py-2 px-4 rounded-full text-[11px] sm:text-xs font-medium text-[#7a4953] bg-[#fdf2f4]/80 hover:bg-[#f7d9df] border border-dashed border-[#c59b27] flex items-center justify-center gap-1.5 transition"
+                >
+                    <span>📥</span>
+                    <span>تحميل ملف الدعوة النهائي لرفعه على رابط (Tiiny.site)</span>
+                </button>
+            </div>
+
+            <!-- 10. Footer -->
+            <div class="pt-5 border-t border-[#f2d5dc] text-center">
+                <p class="font-english-serif text-base sm:text-lg italic text-[#7a4953]" dir="ltr">
+                    With love, Ahmed &amp; Sara
+                </p>
+                <p class="text-sm text-[#8c5a64] mt-1 font-medium">
+                    مستنيينكم تشاركونا فرحتنا <span class="heart-beat">♡</span>
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // ==========================================
+        // 1. PHOTO PRESETS & CUSTOM PHOTO UPLOADER
+        // ==========================================
+        // Built-in artistic SVG wedding couple illustration as option 3
+        const artisticCoupleSvg = "data:image/svg+xml;utf8," + encodeURIComponent(`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+                <defs>
+                    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#fffaf9"/>
+                        <stop offset="100%" stop-color="#f9dce2"/>
+                    </radialGradient>
+                </defs>
+                <rect width="400" height="400" fill="url(#bg)"/>
+                <circle cx="200" cy="200" r="165" fill="none" stroke="#c59b27" stroke-width="2" stroke-dasharray="6 4"/>
+                <!-- Floral Arch -->
+                <circle cx="110" cy="95" r="16" fill="#e899a8" opacity="0.8"/>
+                <circle cx="135" cy="75" r="12" fill="#f4bbc6" opacity="0.9"/>
+                <circle cx="290" cy="95" r="16" fill="#e899a8" opacity="0.8"/>
+                <circle cx="265" cy="75" r="12" fill="#f4bbc6" opacity="0.9"/>
+                <!-- Groom Silhouette -->
+                <circle cx="175" cy="145" r="24" fill="#4a353b"/>
+                <path d="M135 290 C135 205 155 180 175 180 C195 180 210 205 210 290 Z" fill="#3a2a2f"/>
+                <path d="M170 182 L175 215 L182 182 Z" fill="#ffffff"/>
+                <polygon points="172,186 178,186 175,194" fill="#c59b27"/>
+                <!-- Bride Silhouette -->
+                <circle cx="222" cy="155" r="22" fill="#5c3a41"/>
+                <!-- Veil -->
+                <path d="M225 140 Q275 170 285 275 Q255 275 235 220 Z" fill="#ffffff" opacity="0.65"/>
+                <!-- Dress -->
+                <path d="M180 290 Q200 190 222 185 Q245 190 270 290 Z" fill="#ffffff" stroke="#e6c875" stroke-width="1.5"/>
+                <!-- Bouquet -->
+                <circle cx="205" cy="225" r="16" fill="#d16b7c"/>
+                <circle cx="215" cy="232" r="12" fill="#f5cbd3"/>
+                <circle cx="196" cy="233" r="11" fill="#e6c875"/>
+                <!-- Floating Heart -->
+                <path d="M200 105 C195 95 180 95 180 107 C180 117 200 126 200 132 C200 126 220 117 220 107 C220 95 205 95 200 105 Z" fill="#d16b7c"/>
+            </svg>
+        `);
+
+        const presetPhotos = [
+            "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85",
+            "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85",
+            artisticCoupleSvg
+        ];
+
+        function setPresetPhoto(index) {
+            const img = document.getElementById('couple-photo');
+            if (img && presetPhotos[index]) {
+                img.src = presetPhotos[index];
+            }
+        }
+
+        function handleCustomPhoto(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.getElementById('couple-photo');
+                if (img) img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // ==========================================
+        // 2. LIVE COUNTDOWN TIMER (Target: Dec 5, 2026 19:00)
+        // ==========================================
+        // Sets target to December 5, 2026 at 7:00 PM Egypt Time (+02:00)
+        const weddingTargetDate = new Date("2026-12-05T19:00:00+02:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            let diff = weddingTargetDate - now;
+
+            // If for any reason the date has passed, count to next Dec 5
+            if (diff <= 0) {
+                document.getElementById('cd-days').textContent = "00";
+                document.getElementById('cd-hours').textContent = "00";
+                document.getElementById('cd-minutes').textContent = "00";
+                document.getElementById('cd-seconds').textContent = "00";
+                document.getElementById('wedding-day-msg').classList.remove('hidden');
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+            document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ==========================================
+        // 3. SOFT ROMANTIC PIANO & MUSIC BOX MELODY
+        // ==========================================
+        let isMusicPlaying = false;
+        let synthInitialized = false;
+        let pianoSynth = null;
+        let melodyLoop = null;
+
+        // Warm romantic chord arpeggio progression (Canon in D / Romantic Ballad feel)
+        const romanticNotes = [
+            { time: "0:0:0", note: ["F4", "A4", "D5"], duration: "2n" },
+            { time: "0:1:0", note: "A5", duration: "4n" },
+            { time: "0:2:0", note: ["E4", "A4", "C#5"], duration: "2n" },
+            { time: "0:3:0", note: "G5", duration: "4n" },
+            { time: "1:0:0", note: ["D4", "F#4", "B4"], duration: "2n" },
+            { time: "1:1:0", note: "F#5", duration: "4n" },
+            { time: "1:2:0", note: ["C#4", "F#4", "A4"], duration: "2n" },
+            { time: "1:3:0", note: "E5", duration: "4n" },
+            { time: "2:0:0", note: ["B3", "D4", "G4"], duration: "2n" },
+            { time: "2:1:0", note: "D5", duration: "4n" },
+            { time: "2:2:0", note: ["A3", "D4", "F#4"], duration: "2n" },
+            { time: "2:3:0", note: "F#5", duration: "4n" },
+            { time: "3:0:0", note: ["B3", "E4", "G4"], duration: "2n" },
+            { time: "3:1:0", note: "G5", duration: "4n" },
+            { time: "3:2:0", note: ["A3", "C#4", "E4", "A4"], duration: "2n" },
+            { time: "3:3:0", note: "E5", duration: "4n" }
+        ];
+
+        async function initAndStartMusic() {
+            try {
+                await Tone.start();
+
+                if (!synthInitialized) {
+                    const reverb = new Tone.Reverb({ decay: 4.5, wet: 0.45 }).toDestination();
+                    
+                    pianoSynth = new Tone.PolySynth(Tone.Synth, {
+                        oscillator: { type: "sine" },
+                        envelope: {
+                            attack: 0.08,
+                            decay: 1.4,
+                            sustain: 0.25,
+                            release: 2.5
+                        }
+                    }).connect(reverb);
+
+                    pianoSynth.volume.value = -10; // Soft & gentle volume
+
+                    Tone.Transport.bpm.value = 66;
+
+                    melodyLoop = new Tone.Part((time, value) => {
+                        pianoSynth.triggerAttackRelease(value.note, value.duration, time);
+                    }, romanticNotes);
+
+                    melodyLoop.loop = true;
+                    melodyLoop.loopEnd = "4m";
+                    synthInitialized = true;
+                }
+
+                melodyLoop.start(0);
+                Tone.Transport.start();
+                isMusicPlaying = true;
+                updateMusicUI();
+            } catch (e) {
+                console.warn("Audio start deferred:", e);
+            }
+        }
+
+        function toggleMusic() {
+            if (!synthInitialized) {
+                initAndStartMusic();
+                return;
+            }
+
+            if (isMusicPlaying) {
+                Tone.Transport.pause();
+                isMusicPlaying = false;
+            } else {
+                Tone.Transport.start();
+                isMusicPlaying = true;
+            }
+            updateMusicUI();
+        }
+
+        function updateMusicUI() {
+            const icon = document.getElementById('music-icon');
+            const label = document.getElementById('music-label');
+            if (isMusicPlaying) {
+                icon.textContent = "⏸";
+                label.textContent = "إيقاف الموسيقى الهادئة";
+            } else {
+                icon.textContent = "🎵";
+                label.textContent = "تشغيل الموسيقى الهادئة";
+            }
+        }
+
+        // Open Invitation Button Handler
+        document.getElementById('open-invitation-btn').addEventListener('click', () => {
+            const overlay = document.getElementById('welcome-overlay');
+            overlay.classList.add('hidden-overlay');
+            initAndStartMusic();
+        });
+
+        // ==========================================
+        // 4. SHARE INVITATION LINK HELPER
+        // ==========================================
+        function shareInvitation() {
+            const url = window.location.href;
+            const tempInput = document.createElement('input');
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const shareText = document.getElementById('share-btn-text');
+            const original = shareText.textContent;
+            shareText.textContent = "تم نسخ رابط الدعوة بنجاح ✓";
+            setTimeout(() => {
+                shareText.textContent = original;
+            }, 2500);
+        }
+
+        // Download a clean copy for guests (without the photo edit buttons) ready to upload to tiiny.site
+        function downloadCleanInvitation() {
+            const cloneDoc = document.documentElement.cloneNode(true);
+            
+            // Remove editor-only elements so guests only see the final invitation
+            const editorControls = cloneDoc.querySelector('#editor-controls');
+            if (editorControls) editorControls.remove();
+            
+            const presetsBar = cloneDoc.querySelector('#photo-presets-bar');
+            if (presetsBar) presetsBar.remove();
+            
+            const downloadBtn = cloneDoc.querySelector('#download-ready-btn');
+            if (downloadBtn) downloadBtn.remove();
+
+            // Make sure the overlay starts visible when guests open the link
+            const overlay = cloneDoc.querySelector('#welcome-overlay');
+            if (overlay) overlay.classList.remove('hidden-overlay');
+
+            const htmlContent = "<!DOCTYPE html>\n" + cloneDoc.outerHTML;
+            const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "index.html";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // ==========================================
+        // 5. FALLING ROSE PETALS & GOLD SPARKLES CANVAS
+        // ==========================================
+        const canvas = document.getElementById('petals-canvas');
+        const ctx = canvas.getContext('2d');
+        let petals = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Petal {
+            constructor() {
+                this.reset(true);
+            }
+
+            reset(initial = false) {
+                this.x = Math.random() * canvas.width;
+                this.y = initial ? Math.random() * canvas.height : -20;
+                this.size = Math.random() * 7 + 5;
+                this.speedY = Math.random() * 0.8 + 0.35;
+                this.speedX = (Math.random() - 0.5) * 0.6;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+                this.opacity = Math.random() * 0.45 + 0.2;
+                this.isGold = Math.random() > 0.72;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX + Math.sin(this.y * 0.012) * 0.3;
+                this.rotation += this.rotationSpeed;
+
+                if (this.y > canvas.height + 20) {
+                    this.reset(false);
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.globalAlpha = this.opacity;
+
+                if (this.isGold) {
+                    // Subtle Gold Sparkle Dot
+                    ctx.fillStyle = "#d4af37";
+                    ctx.beginPath();
+                    ctx.arc(0, 0, this.size * 0.35, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    // Soft Blush Rose Petal Shape
+                    ctx.fillStyle = "#e899a8";
+                    ctx.beginPath();
+                    ctx.moveTo(0, 0);
+                    ctx.bezierCurveTo(this.size, -this.size, this.size * 1.4, this.size, 0, this.size * 1.5);
+                    ctx.bezierCurveTo(-this.size * 1.4, this.size, -this.size, -this.size, 0, 0);
+                    ctx.fill();
+                }
+
+                ctx.restore();
+            }
+        }
+
+        function initPetals() {
+            resizeCanvas();
+            petals = [];
+            const count = window.innerWidth < 640 ? 22 : 38;
+            for (let i = 0; i < count; i++) {
+                petals.push(new Petal());
+            }
+        }
+
+        function animatePetals() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let p of petals) {
+                p.update();
+                p.draw();
+            }
+            requestAnimationFrame(animatePetals);
+        }
+
+        window.onload = function() {
+            initPetals();
+            animatePetals();
+        };
+
+        window.addEventListener('resize', resizeCanvas);
+    </script>
+</body>
+</html>
